@@ -1,0 +1,46 @@
+{% include "inc/header.html" %}
+{% load static %}
+<div class="container bg-light p-4">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Formulario de Actualizar Proveedor</h1>
+        {% for c in proveedor %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombre_marca">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" value="{{ c.nombre }}" required/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="pais_origen">Cedula:</label>
+                    <input type="number" name="cedula" id="cedula" class="form-control" value="{{ c.cedula }}" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fecha_fundacion">Celular:</label>
+                    <input type="number" name="celular" id="celular" class="form-control" value="{{ c.celular }}" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descripcion">Pais:</label>
+                    <input type="text" name="pais" id="pais" class="form-control" value="{{ c.pais }}" required>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-md-12">
+                <div class="centrarboton">
+                    <br>
+                    <input type="submit" value="Actualizar Proveedor" class="btn btn-dark">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% include "inc/footer.html" %}

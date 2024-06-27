@@ -1,0 +1,44 @@
+{% include "inc/header.html" %}
+{% load static %}
+<div class="container bg-light p-4">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Formulario de registro Proveedor</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombre_marca">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="pais_origen">Cedula:</label>
+                    <input type="number" name="cedula" id="cedula" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fecha_fundacion">Celular:</label>
+                    <input type="number" name="celular" id="celular" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descripcion">Pais:</label>
+                    <input type="text" name="pais" id="pais" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="centrarboton">
+                    <br>
+                    <input type="submit" value="Guardar Proveedor" class="btn btn-dark">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% include "inc/footer.html" %}

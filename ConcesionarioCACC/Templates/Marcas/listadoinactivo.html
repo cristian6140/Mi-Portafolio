@@ -1,0 +1,36 @@
+{% include "inc/header.html" %}
+
+<div class="container">
+    <h1>Listado de Marcas Inactivas</h1> <a href="/marcas/listado"><button class="btn btn-dark">Marcas activas</button></a>
+    <br><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Nombre completo</td>
+                <td>Pais Origen</td>
+                <td>Fecha Fundacion</td>
+                <td>Descripcion</td>
+                <td>Actualizar</td>
+                <td>Activar</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in marcas %}
+            <tr>
+                <td>{{ c.nombre_marca }}</td>
+                <td>{{ c.pais_origen }}</td>
+                <td>{{ c.fecha_fundacion }}</td>
+                <td>{{ c.descripcion }}</td>
+                <td>
+                    <a href="/marcas/actualizar/{{c.id}}"><i class=  "fa fa-pencil" aria-hidden="true" style="color: black;"></i></a>
+                </td>
+                <td>
+                    <a href="/marcas/activar/{{c.id}}"><i class="fa fa-trash" aria-hidden="true" style="color: black;"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include "inc/footer.html" %}

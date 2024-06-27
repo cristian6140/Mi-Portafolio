@@ -1,0 +1,94 @@
+{% include "inc/header.html" %}
+{% load static %}
+<div class="container bg-light p-4">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Formulario registro de Vehiculo</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombre_marca">Nombre Vehiculo:</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="pais_origen">Color:</label>
+                    <input type="text" name="color" id="color" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fecha_fundacion">Modelo:</label>
+                    <input type="text" name="modelo" id="modelo" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descripcion">Capacidad de Personas:</label>
+                    <input type="number" name="capacidad" id="capacidad" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nombre_marca">Cilindraje:</label>
+                        <input type="number" name="cilindraje" id="cilindraje" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pais_origen">Cantidad de Vehiculos:</label>
+                        <input type="number" name="cantidad_de_vehiculos" id="cantidad_de_vehiculos" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nombre_marca">Precio:</label>
+                        <input type="number" name="precio" id="precio" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pais_origen">Foto:</label>
+                        <input type="file" name="foto" id="foto" class="form-control" accept="image/*">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nombre_marca">Proveedor:</label>
+                        <select name="proveedor" id="proveedor" class="form-control">
+                            {% for p in proveedor %}
+                            <option value="{{ p.id }}">{{ p.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pais_origen">Marca:</label>
+                        <select name="marcas" id="marcas" class="form-control">
+                            {% for m in marcas %}
+                            <option value="{{ m.id }}">{{ m.nombre_marca }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="centrarboton">
+                    <br>
+                    <input type="submit" value="Guardar Vehiculo" class="btn btn-dark">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% include "inc/footer.html" %}

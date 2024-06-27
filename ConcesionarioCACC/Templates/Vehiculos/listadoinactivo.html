@@ -1,0 +1,34 @@
+{% include "inc/header.html" %}
+{% load static %}
+<main>
+    <br>
+    <h1>Listado de Vehiculos Inactivos</h1>
+    <a href="/vehiculo/listado"><button class="btn btn-dark">Listado Activos</button></a>
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+            {% for p in vehiculo %}
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="{% static 'Img/' %}{{ p.foto }}" class="card-img-top" height="200" alt="">
+                    <div class="card-body">
+                        <div class="clearfix mb-3">
+                            <span class="float-start badge rounded-pill bg-primary">{{ p.nombre }}</span>
+                            <span class="float-end price-hp">&dollar;{{ p.precio }}</span>
+                        </div>
+                        <h5 class="card-title">Descripción:</h5>
+                        <h6>Modelo: {{ p.modelo }}</h6>
+                        <h6>Cilindraje: {{ p.cilindraje }}</h6>
+                        <h6>Cantidad Disponible: {{ p.cantidad_de_vehiculos }}</h6>
+                        <div class="text-center my-4">
+                            <a href="/vehiculo/actualizar/{{ p.id }}" class="btn btn-dark">Actualizar</a>
+                            <a href="/vehiculo/activar/{{ p.id }}" class="btn btn-dark">Activar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+{% include "inc/footer.html" %}

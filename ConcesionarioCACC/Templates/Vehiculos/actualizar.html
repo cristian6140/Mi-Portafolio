@@ -1,0 +1,96 @@
+{% include "inc/header.html" %}
+{% load static %}
+<div class="container bg-light p-4">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Formulario Actualizar Vehiculo</h1>
+        {% for c in vehiculo %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombre_marca">Nombre Vehiculo:</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" value="{{ c.nombre }}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="pais_origen">Color:</label>
+                    <input type="text" name="color" id="color" class="form-control" value="{{ c.color }}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fecha_fundacion">Modelo:</label>
+                    <input type="text" name="modelo" id="modelo" class="form-control" value="{{ c.modelo }}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descripcion">Capacidad de Personas:</label>
+                    <input type="number" name="capacidad" id="capacidad" class="form-control" value="{{ c.capacidad }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nombre_marca">Cilindraje:</label>
+                        <input type="number" name="cilindraje" id="cilindraje" class="form-control" value="{{ c.cilindraje }}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pais_origen">Cantidad de Vehiculos:</label>
+                        <input type="number" name="cantidad_de_vehiculos" id="cantidad_de_vehiculos" class="form-control" value="{{ c.cantidad_de_vehiculos }}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nombre_marca">Precio:</label>
+                        <input type="number" name="precio" id="precio" class="form-control" value="{{ c.precio }}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pais_origen">Foto:</label>
+                        <input type="file" name="foto" id="foto" class="form-control" accept="image/*" value="{{ c.foto }}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nombre_marca">Proveedor:</label>
+                        <select name="proveedor" id="proveedor" class="form-control" value="{{ c.proveedor }}">
+                            {% for p in proveedor %}
+                            <option value="{{ p.id }}" {% if p.id == c.proveedor_id %} selected {% endif %}>{{ p.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="pais_origen">Marca:</label>
+                        <select name="marcas" id="marcas" class="form-control" value="{{ c.marcas }}">
+                            {% for m in marcas %}
+                            <option value="{{ m.id }}" {% if m.id == c.marcas_id %} selected {% endif %}>{{ m.nombre_marca }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-md-12">
+                <div class="centrarboton">
+                    <br>
+                    <input type="submit" value="Guardar Vehiculo" class="btn btn-dark">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% include "inc/footer.html" %}

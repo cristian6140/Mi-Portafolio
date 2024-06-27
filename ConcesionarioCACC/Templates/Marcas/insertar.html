@@ -1,0 +1,44 @@
+{% include "inc/header.html" %}
+{% load static %}
+<div class="container bg-light p-4">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Formulario registro de Marca</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombre_marca">Nombre Marca:</label>
+                    <input type="text" name="nombre_marca" id="nombre_marca" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="pais_origen">Pais de Origen:</label>
+                    <input type="text" name="pais_origen" id="pais_origen" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fecha_fundacion">Fecha Fundacion:</label>
+                    <input type="date" name="fecha_fundacion" id="fecha_fundacion" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="descripcion">Descripcion:</label>
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="centrarboton">
+                    <br>
+                    <input type="submit" value="Guardar Marca" class="btn btn-dark">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% include "inc/footer.html" %}

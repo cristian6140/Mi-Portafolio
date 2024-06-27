@@ -1,0 +1,36 @@
+{% include "inc/header.html" %}
+
+<div class="container">
+    <h1>Listado de Proveedores Activos</h1> <a href="/proveedor/listadoinactivo"><button class="btn btn-dark">Proveedores Inactivos</button></a>
+    <br><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Nombre completo</td>
+                <td>Cedula</td>
+                <td>Celular</td>
+                <td>Pais</td>
+                <td>Actualizar</td>
+                <td>Inactivar</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in proveedor %}
+            <tr>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.cedula }}</td>
+                <td>{{ c.celular }}</td>
+                <td>{{ c.pais }}</td>
+                <td>
+                    <a href="/proveedor/actualizar/{{c.id}}"><i class=  "fa fa-pencil" aria-hidden="true" style="color: black;"></i></a>
+                </td>
+                <td>
+                    <a href="/proveedor/inactivar/{{c.id}}"><i class="fa fa-trash" aria-hidden="true" style="color: black;"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include "inc/footer.html" %}
